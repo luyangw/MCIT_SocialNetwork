@@ -1,0 +1,104 @@
+<%= stylesheet_link_tag "datepicker", :media => "all" %>
+<%= stylesheet_link_tag "jquery.tagsinput", :media => "all" %>
+
+<div class="main profile-edit">
+    <div class="box">
+        <div class="row-fluid">
+            <div class="column span4">
+                <div class="hero-unit profile-leftbox">
+                  <div class="profile-picture"><%= image_tag(@user.profile_picture.url) if @user.profile_picture.present? %></div>
+                   
+                   <%= simple_form_for @user, :url => user_path(@user), :html => { :multipart => true } do |form| %>
+		  			       
+                   <%= form.input :profile_picture %>
+		  			       
+                   <%= form.input :first_name, :label => "First Name" %>
+
+                   <%= form.input :last_name %>
+
+                   <%= form.input :email %>
+
+                   <%= form.input :hometown %>
+
+                   <div class="buttongroups">
+                      <%= form.label "Current Status" %>
+                     <label class="radiolabel"><%= form.radio_button :is_current_student, "true"%> Current Student</label>
+                     <label class="radiolabel"><%= form.radio_button :is_current_student, "false"%> Alum</label>
+                   </div>
+
+                   <div class="buttongroups">
+                      <%= form.label "Full Time Status" %>
+                     <label class="radiolabel"><%= form.radio_button :is_parttime, "false"%> Full Time</label>
+                     <label class="radiolabel"><%= form.radio_button :is_parttime, "true"%> Part Time</label>
+                   </div>
+
+                   <div class="buttongroups">
+                    <%= form.label :matriculation_date %>
+                    <%= form.text_field :matriculation_date, :class => "datepicker"%>
+                   </div>
+
+
+                   <div class="buttongroups">
+                    <%= form.label :graduation_date %>
+                    <%= form.text_field :graduation_date, :class => "datepicker"%>
+                   </div>
+
+
+                  <hr/>
+
+                  <%= form.label :undergrad_major %>
+                  <%= form.text_field :undergrad_major %>
+
+                  <%= form.label :undergrad_school %>
+                  <%= form.text_field :undergrad_school %>
+
+                  <hr/>
+
+                  <%= form.label :bio %>
+                  <%= form.text_area :bio %>
+
+					<input type="submit" name="commit" value="Save Profile" class="button edit-user" />
+                </div>
+            </div>
+            <div class="column span8">
+                <div class="padding">
+					          <div class="hero-unit info-box">
+                        <h2>Languages</h2>
+                        <%= form.text_field :languages, :class => 'tagsinput'%>              
+                        
+                    </div>
+                    <div class="hero-unit info-box">
+                        <h2>Areas of Interests</h2>
+                        <%= form.text_field :areas_of_interest, :class => 'tagsinput'%>
+                    </div>
+                    <div class="hero-unit info-box">
+                        <h2>Courses</h2>
+                         <%= form.text_field :courses, :class => 'tagsinput'%>
+                    </div>
+                    <div class="hero-unit info-box">
+                        <h2>Work Experience</h2>
+                        <%= form.text_area :previous_work %>
+                    </div>
+	            </div><!--padding-->
+            </div><!--colum span8-->
+
+		  		<% end %><!-- form-->
+        </div>
+    </div>
+</div>
+
+<%= javascript_include_tag "landing_scripts" %>
+<%= javascript_include_tag "bootstrap-datepicker" %>
+<%= javascript_include_tag "jquery.tagsinput" %>
+
+
+<script>
+  $(".datepicker").datepicker({
+    format:"mm-yyyy",
+    viewMode:"months",
+    minViewMode:"months"
+  });
+
+  $('.tagsinput').tagsInput();
+
+</script>

@@ -1,0 +1,54 @@
+<div class="form-wrapper">
+
+<%= simple_form_for(@feedback) do |form| %>
+
+
+    <% if not params[:company_id].blank? %>
+        <h1>Feedback for <%= @feedback.get_company_name(@feedback.company_id) %></h1>
+        <%= form.hidden_field :company_id, :value => @feedback.company_id.to_i %>
+    <% else %>
+    <div class='select-wrapper'>
+       <h2> Feedback for </h2>
+        <%= form.input :company_id, :collection => @feedback.make_company_collection, :input_html => {:class => 'chosen-select'}, label: false %>
+    </div>
+    <div class="text1">Didn't see the company you're looking for?</div>
+            <%= link_to "<i class='fa fa-suitcase'></i>  Add Company".html_safe, new_company_path(:back_to_form => true) %>
+    <% end %>
+
+    <div class="radiobuttons-group">
+    <%= form.input :is_question, collection: [['Interview Question', true] ,['Comment', false]], as: :radio_buttons, label: false %>
+    <%= form.hidden_field :adder_id, :value => current_user.id%>
+    </div>
+
+    <%= form.input :feedback_content, label: false, as: :text %> 
+
+
+    <div class="span8">
+        <%= form.button :submit, class: 'submit button' %>
+    </div>
+    <div class="span4">
+        <%= link_to '<div class="cancel button">Cancel</div>'.html_safe, :back %>
+    </div>
+
+  <% end %>
+
+</div>
+
+<script>
+
+	$('#feedback_is_question_true').on('click', function() {
+		$('#feedback_feedback_content').attr('placeholder', '  Enter your interview question');
+	});
+
+	$('#feedback_is_question_false').on('click', function() {
+		$('#feedback_feedback_content').attr('placeholder', '  Enter your comment');
+
+	});
+
+    $('.chosen-select').attr("data-placeholder", "Select a company").chosen({
+      allow_single_deselect: true,
+      no_results_text: 'No results matched',
+    });
+
+
+</script>

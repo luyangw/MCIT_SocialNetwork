@@ -1,0 +1,36 @@
+<div class="questions-index">
+
+	<div class="add-question">
+		<div class="text-wrapper">
+			<%= form_tag(feedbacks_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+			  <div class="input-append">
+			    <%= text_field_tag :search, params[:search], class: "span12", placeholder: "Search Feedback" %>
+			    <button class="btn" type="submit"><i class="icon-search"></i></button>
+			  </div>
+			<% end %>
+			<div class="text1">Have an interview question to share?</div><%= link_to '<i class="fa fa-pencil-square-o"></i> Add a Question'.html_safe, new_feedback_path %>
+		</div>
+	</div>
+
+	<ul class="questions-list">
+		<% if @search_results %>
+			<h3>Search Results</h3>
+		<% end %>
+		<% @questions.each do |q| %>
+			<li><div onclick="location.href='<%= feedback_path(q.id) %>';"><%= q.feedback_content %></div>
+			<div class ="post-info">
+				<div class="company-name" onclick="location.href='<%= company_path(q.company_id) %>';"><i class="fa fa-suitcase"></i><%= q.get_company_name(q.company_id) %></div>
+					<i class="fa fa-user"></i>Posted by <div class="user-name" onclick="location.href='<%= user_path(q.adder_id) %>';">  <%= q.adder_name %></div> on <%= q.get_created_time %>
+				<div class="count"><i class="fa fa-comments-o"></i> <%= q.count_responses('feedback') %></div>
+			</div>
+			</li>
+		<% end %>
+	</ul>
+
+	<%= paginate @questions %>
+
+</div>
+
+<script>
+	$('body').addClass('questions-index-bg');
+</script>

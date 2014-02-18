@@ -1,0 +1,56 @@
+<div class="company-show">
+
+	<div class="header-wrapper">
+
+	<h1><%= @company.name %></h1>
+		<%= link_to "<i class='fa fa-pencil-square-o'></i>Add Feedback".html_safe, new_feedback_path(:company_id => @company.id) %></br>
+</a>
+	</div>
+
+	<div class="span12" id="questions">
+		<h3>Interview Questions</h3>
+		<ul class="questions-list">
+			<% if @questions.count == 0 %>
+				No questions have been added yet.
+			<% else %>
+				<% @questions.each do |q| %>
+					<li><div onclick="location.href='<%= feedback_path(q.id) %>';"><%= q.feedback_content %></div>
+						<div class="adder-name">
+							<div class="count" onclick="location.href='<%= feedback_path(q.id) %>#responses';"><i class="fa fa-comments-o"></i> <%= q.count_responses('feedback') %></div>
+							<i class="fa fa-user"></i>  Posted by <div class="user-name" onclick="location.href='<%= user_path(q.adder_id) %>';"><%= q.adder_name %></div>
+							on <%= q.get_created_time %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="span12" id="comments">
+		<h3>Comments</h3>
+		<ul class="comments-list">
+			<% if @comments.count == 0 %>
+				No comments have been added yet.
+			<% else %>
+				<% @comments.each do |c| %>
+					<li><%= c.feedback_content %>
+					<div class="adder-name">
+							<i class="fa fa-user"></i>  Posted by <div class="user-name" onclick="location.href='<%= user_path(c.adder_id) %>';"><%= c.adder_name %></div>
+							on <%= c.get_created_time %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<script>
+	$('body').addClass('company-show-bg');
+
+	if (location.hash != "") {
+	    $('html, body').animate( {
+	    	scrollTop: $(location.hash).offset().top
+	    	}, 1000);
+	}
+</script>

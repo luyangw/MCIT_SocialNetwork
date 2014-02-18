@@ -1,0 +1,9 @@
+<div class="row-fluid email-confirm">
+	<div class="span10 offset1">
+			<span class="container">
+				<h1>Welcome to <b>mcit social</b>!</h1>
+				<h3>Your log-in email is <%= @email %>.</h3>
+				<%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token), :class => "button" %>
+			</span>
+		</div>
+</div>

@@ -1,0 +1,20 @@
+<div class="form-wrapper">
+<%= simple_form_for(@protip) do |form|%>
+
+    <label>Category</label>
+	<%= form.input :category, :collection => Category.all, :label => false %>
+    <label>Title</label>
+	<%= form.input :title, :label => false %>
+    <label>Content</label>
+	<%= form.input :content, :label => false %>
+    <%= form.hidden_field :adder_id, :value => current_user.id%>
+
+    <div class="span8">
+        <%= form.button :submit, class: 'submit button' %>
+    </div>
+    <div class="span4">
+        <%= link_to '<div class="cancel button">Cancel</div>'.html_safe, :back %>
+    </div>
+ <% end %>
+
+</div>
