@@ -1,3 +1,102 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+$lobster: 'Lobster', cursive;
+$cloud: #ecf0f1;
+$turquoise: #1abc9c;
+#main-nav {
+	opacity: 0.9;
+	background-color: black;
+	-webkit-box-shadow: 0px 20px 50px #000000;
+    -moz-box-shadow:    0px 20px 50px #000000;
+    box-shadow:         0px 20px 50px #000000;
+    border: none;
+    z-index:999;
+
+    .brand {
+		font-family: $lobster;
+		color: white;
+		text-shadow: none;
+		letter-spacing: 1px;
+	}
+
+	.navbar-right {
+		float: right;
+
+		a {
+			opacity: 0.7;
+		}
+	}
+
+	.sign-in-status {
+		color: #777777;
+	}
+
+	.sign-in-status:hover {
+		color: white;
+		cursor: pointer;
+	}
+
+	.navbar-inner {
+		background: black;
+		padding-left: 2em;
+		text-decoration: none;
+		border: none;
+
+		li a {
+			color: $cloud;
+			text-shadow: none;
+		}
+
+		li a:hover {
+			color: $turquoise;
+		}
+
+		.active > a  {
+			background-color: #181818;
+			color: $turquoise;
+		}
+	}
+
+
+	@media (max-width: 635px) {
+		.nav {
+			width: 100%;
+		}
+		li {
+			width: 33%;
+		}
+	}
+
+	@media (max-width: 320px) {
+		li {
+			width: 50%;
+		}
+	}
+
+
+	@media only screen 
+	and (min-device-width : 320px) 
+	and (max-device-width : 480px) { 
+		
+		li {
+			width: 19%;
+		}
+
+		.nav {
+			font-size: 0.4em;
+
+		}
+
+		#main-nav .navbar-inner .active > a {
+			padding: 1px;
+		}
+
+	}
+
+	
+
+}

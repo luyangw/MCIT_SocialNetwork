@@ -1,0 +1,103 @@
+$midnight-blue: #2c3e50;
+$pumpkin: #d35400;
+$cloud: #ecf0f1;
+$belize: #2980b9;
+$green: #27ae60;
+$silver: #bdc3c7;
+$carrot: #e67e22;
+$pomegranate: #c0392b;
+$turquoise: #1abc9c;
+$lobster: 'Lobster', cursive;
+$roboto: 'Roboto', sans-serif;
+$italiana: 'Italiana', serif;
+
+@import 'font-awesome';
+
+@mixin background-image($src) {
+   	background: url($src) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+@mixin turquoise($opacity) {
+	background-color: #1abc9c;
+	background-color: rgba(26, 188, 156, $opacity);
+}
+
+@mixin green-sea($opacity) {
+	background-color: #16a085;
+	background-color: rgba(22, 160, 133, $opacity);
+}
+
+@mixin form-input() {
+	form input[type=text],
+	form input[type=password], 
+	form input[type=email], textarea {
+		text-align: center;
+		font-weight: 400;
+	    font-size: 1.5em;
+	    letter-spacing: 1px;
+	    width: inherit;
+	    height: 40px;
+	    line-height: 40px;
+	    margin-top: 0.5em;
+	    background: rgba(255,255,255,0.2);
+	    border: none;
+	    outline: none;
+	    border-radius: 0px;
+	    color: white
+	}
+}
+
+@mixin list() {
+
+	li {
+			border: 0;
+			padding: 1.25em;
+			border-bottom: 1px solid;
+			-webkit-transition: 0.25s linear;
+	  		transition: 0.25s linear;
+	  		font-size: 1.25em;
+	  		border-color: white;
+	  		color: white;
+		}
+
+	li:hover {
+		background-color: rgba(0,0,0, 0.6);
+		cursor: pointer;
+	}
+
+}
+
+@mixin ellipsis() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin index-header() {
+		padding: 1.25em;
+		padding-left: 0;
+		padding-right: 0;
+		margin-bottom: 1.25em;
+		background: black;
+		background: rgba(0,0,0,0.7);
+
+		.text-wrapper {
+			padding-left: 1.25em;
+			padding-right: 1.25em;
+		}
+
+		.text1 {
+			opacity: 0.7;
+			display: inline-block;
+			margin-right: 1em;
+			color: $cloud;
+		}
+
+		a:hover {
+			color: $silver;
+		}
+}
