@@ -5,7 +5,7 @@
 	@include background-image('../assets/rittenhouse_bg.png');
 }
 
-.feedback-new, .protip-new {
+.feedback-new{
 
 	@include index-header();
 
@@ -172,7 +172,7 @@
 }
 
 
-.question-show, .protip-show {
+.question-show{
 
 	@include form-input();
 

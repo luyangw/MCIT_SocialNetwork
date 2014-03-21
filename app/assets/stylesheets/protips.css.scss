@@ -1,3 +1,499 @@
 // Place all the styles related to the protips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+.protip-show {
+
+	color: white;
+	background: none;
+	padding: 0;
+
+	@include form-input();
+
+	.protip {
+		background: rgba(0,0,0,0.7);
+		padding: 2em;
+		margin-bottom: 0;
+		padding-bottom: 3em;
+	}
+
+	h1 {
+		color: white;
+		margin-bottom: 0.25em;
+		font-size: 2em;
+	}
+
+	h2 {
+		color: white;
+		margin-bottom: 1em;
+		font-size: 1.5em;
+		font-weight: 300;
+	}
+
+	h5, .adder-info {
+		display: inline-block;
+		margin-right: 0.5em;
+	}
+
+	.info {
+		float: right;
+	}
+
+	.adder-name {
+		text-align: right;
+		opacity: 0.7;
+		display: inline-block;
+	}
+
+	.user-name {
+		display: inline;
+		width: auto;
+	}
+
+	.user-name:hover, .company-name:hover {
+		color: $green;
+		cursor: pointer;
+	}
+}
+
+
+.protip-show {
+
+	@include form-input();
+
+	textarea {
+		font-size: 1em;
+	}
+
+	color: white;
+	margin-bottom: 4em;
+	padding-top: 0;
+
+
+	.button {
+		width: auto;
+	}
+
+	.circle, .circle-sm, .square-mask, .square-mask-sm {
+		width: 125px;
+		height: 125px;
+		border-radius: 50%;
+		overflow: hidden;
+		background-size: cover;
+		background-position: center;
+		border: 1px solid;
+		border-color: white;
+	}
+
+	.square-mask {
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		float: right;
+	}
+
+	.square-mask-sm {
+		width: 80px;
+		height: 80px;
+		border-radius: 10px;
+		float: right;
+	}
+
+	.circle-sm {
+		width: 90px;
+		height: 90px;
+	}
+
+	.question-header {
+		padding: 2em;
+		background: rgba(0,0,0,0.7);
+	}
+
+	.comment {
+		margin-top: 5px;
+		padding: 2em;
+		background: rgba(0,0,0,0.5);
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.individual-comment {
+		border-top: 1px solid;
+		border-bottom: 1px solid;
+		border-color: white;
+		padding-top: 1.5em;
+		padding-bottom: 3em;
+
+		h4 {
+			font-size: 1.5em;
+		}
+	}
+
+	.answer-box {
+		display: inline-block;
+		margin-top: 5px;
+	}
+
+	.text-heading {
+		font-family: $italiana;
+		margin-top: 0px;
+	}
+
+
+	h1 {
+		color: white;
+		margin-bottom: 1em;
+		font-size: 2em;
+	}
+
+	.company-name {
+		font-size: 2em;
+		font-family: $italiana;
+		margin-bottom: 0.5em;
+	}
+
+	.sub-comment-content {
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	.subcomment-adder-name, .comment-adder-name, .adder-name, .company-name, .likes {
+		text-align: right;
+		opacity: 0.7;
+	}
+
+	.subcomment-adder-name, .comment-adder-name {
+		float: left;
+		font-weight: 300;
+
+		.user-name {
+			font-size: 1.25em;
+			font-weight: 400;
+			color: white;
+		}
+	}
+
+	.user-name {
+		display: inline;
+		width: auto;
+	}
+
+	.user-name:hover, .company-name:hover {
+		color: $green;
+		cursor: pointer;
+	}
+
+	.comment-content {
+		padding-top: 1em;
+		font-size: 1.25em;
+	}
+
+	.button {
+		margin-top: 0px;
+	}
+	
+	.button-blue{
+		background-color: #3498db;
+		background: #3498db;
+		box-shadow: 0px 5px 1px #1A6291;
+	}
+
+	.button-blue:hover {
+		background-color: $belize;
+	}
+
+	.text-box {
+		margin-top: 0px;
+		height: 50px;
+		resize: none;
+		text-align:left;
+	}
+
+	hr {
+		margin-bottom: 0;
+	}
+
+	.sub-comment {
+		background: none;
+	}
+
+	.fa-user {
+			margin-left: 0.5em;
+	}
+
+	.reply-comment {
+		padding-top: 2em;
+	}
+}
+
+.modal-popup {
+
+	  position: relative;
+	  background: #FFF;
+	  @include background-image('brick-walk-bg.png');
+	  padding: 20px;
+	  max-width: 960px;
+	  min-height: 500px;
+	  margin: 20px auto;
+	  padding-top: 50px;
+
+	  h1 {
+	  	color: white;
+	  	margin-bottom: 1em;
+	  }
+
+	  .protips-list {
+
+	  	background: rgba(0,0,0,0.2);
+	  	color: white;
+	  	margin-bottom: 1em;
+
+		.count {
+			text-align: left;
+			display: inline;
+			margin-right: 0.25em;
+		}
+
+		.count:hover {
+			cursor: pointer;
+			color: $green;
+		}
+
+	  	list-style: none;
+
+			margin-left: 0;
+
+			@include list();
+
+			@media  (max-width: 600px) {
+				width: 100%;
+			}
+
+			i {
+				margin-left: 1em;
+				margin-right: 0.25em;
+			}
+
+			.post-info {
+				margin-top: 1em;
+				font-size: 0.8em;
+
+				i {
+					margin-left: 0;
+				}
+			}
+
+			.user-name:hover {
+				color: #3498db;
+			}
+
+			.user-name {
+				width: auto;
+				display: inline;
+			}
+	  }
+}
+
+
+.protips-index {
+	color: white;
+	padding: 0;
+
+	.add-feedback {
+		@include index-header();
+	}
+
+	.text-wrapper {
+		display: inline-block;
+	}
+
+	#add-protip-link {
+		color: $carrot;
+	}
+
+	#add-protip-link:hover {
+		color: $cloud;
+	}
+
+	.text1 {
+		float: left;
+		margin-right: 0.25em;
+	}
+
+	.container {
+		margin: 0;
+		padding: 0;
+	}
+
+	.span3 {
+		margin-left: 0;
+		padding: 0.5em;
+	}
+
+	.square1, .square2, .square3, .square4 {
+		width: 100%;
+		height: 0; 
+		// height is 0, but the bottom padding is set to 100%
+		// this is to make the "height" always same as the width
+		background:  #f53d65;
+		border-radius: 10px;
+		background: rgba(245, 61, 101, 0.7);
+		border: 1px solid;
+		border-color: white;
+		display: inline-block;
+		padding-bottom: 100%;
+		-webkit-transition: all 0.15s linear;
+		-moz-transition: all 0.15s linear;
+		transition: all 0.15s linear;
+
+		h1 {
+			margin-top: 35%;
+			text-align: center;
+			font-size: 1.5em;
+			color: white;
+		}
+	}
+
+	.square1:hover {
+		background: rgba(245, 61, 101, 1);
+	}
+
+	.square2 {
+		background:  #ff3d00;
+		background: rgba(255, 61, 0, 0.6);
+	}
+
+	.square2:hover {
+		background: rgba(255, 61, 0, 1);
+	}
+
+	.square3 {
+		background:  #228653;
+		background: rgba(34, 134, 83, 0.7);
+	}
+
+	.square3:hover {
+		background: rgba(34, 134, 83, 1);
+	}
+
+	.square4 {
+		background:  #329000;
+		background: rgba(50, 144, 0, 0.6);
+	}
+
+	.square4:hover {
+		background: rgba(50, 144, 0, 1);
+	}
+
+}
+
+.protip-new {
+
+	@include index-header();
+
+	background:none;
+	padding-top: 0;
+
+	.text1{
+		margin-bottom:10px;
+	}
+	color: white;
+
+	.radiobuttons-group {
+		display: block;
+	}
+
+	.select-wrapper {
+		color: black;
+		margin-bottom: 1em;
+		display: block;
+		padding: 0.5em;
+		padding-left: 0em;
+
+		h2 {
+			float: left;
+			font-family: $italiana;
+			color: white;
+			font-size: 1.25em;
+			margin-top: -5px;
+			margin-right: 0.75em;
+		}
+	}
+
+	@include form-input();
+	textarea {
+		height: 200px;
+		resize: none;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		text-align: left;
+	}
+
+	h1 {
+		font-family: $italiana;
+		text-shadow: 2px 2px 3px black;
+		margin-bottom: 0.75em;
+	}
+
+	.form-wrapper {
+		width: 50%;
+		min-height: 450px;
+		margin-left: auto;
+		margin-right: auto;
+		background: rgba(0,0,0,0.5);
+		padding: 1em;
+
+		@media(max-width: 900px) {
+			width: 80%;
+		}
+
+		form input[type='text'],  {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		label {
+			margin: 0;
+		}
+
+		textarea, input[type='text'] {
+			margin-top: 0;
+			text-align: left;
+		}
+
+	}
+
+	.submit, .cancel {
+		display: inline-block;
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.button:hover {
+		color: white;
+	}
+
+	.span4, .span8 {
+		margin: 0;
+		padding-top: 0;
+		padding-right: 1em;
+		text-align: left;
+	}
+
+	.cancel {
+		background: #3498db;
+		box-shadow: 0px 5px 1px #1A6291;
+	}
+
+	.cancel:hover, .cancel:active {
+			background: #2980b9;
+	}
+
+}
+
+.protips-index-bg, .protip-show-bg {
+	@include background-image('../assets/city-bg.png');
+}

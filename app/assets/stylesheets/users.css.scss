@@ -2,101 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "variables";
+.user-index {
 
+	.search-user {
+		@include index-header();
 
-$lobster: 'Lobster', cursive;
-$cloud: #ecf0f1;
-$turquoise: #1abc9c;
-#main-nav {
-	opacity: 0.9;
-	background-color: black;
-	-webkit-box-shadow: 0px 20px 50px #000000;
-    -moz-box-shadow:    0px 20px 50px #000000;
-    box-shadow:         0px 20px 50px #000000;
-    border: none;
-    z-index:999;
-
-    .brand {
-		font-family: $lobster;
-		color: white;
-		text-shadow: none;
-		letter-spacing: 1px;
-	}
-
-	.navbar-right {
-		float: right;
-
-		a {
-			opacity: 0.7;
+		form {
+			display: inline-block;
 		}
 	}
 
-	.sign-in-status {
-		color: #777777;
-	}
 
-	.sign-in-status:hover {
+	.profile-thumb {
+		padding: 1em;
+		background-color: black;
+		background: rgba(0, 0, 0, 0.7);
+		border-radius: 0px;
 		color: white;
-		cursor: pointer;
+		margin-bottom: 1em;
+		margin-left: 0;
+		text-align: center;
+		-webkit-transition: 0.25s linear;
+	  	transition: 0.25s linear;
 	}
 
-	.navbar-inner {
+	.profile-thumb:hover {
 		background: black;
-		padding-left: 2em;
-		text-decoration: none;
-		border: none;
+		background: rgba(0, 0, 0, 1);
+	}
 
-		li a {
-			color: $cloud;
-			text-shadow: none;
-		}
+	.picture-thumb {
+		width: 100%;
+		min-height: 200px;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		margin-bottom: 1em;
+	}
 
-		li a:hover {
-			color: $turquoise;
-		}
+	.status-ribbon {
+		float: right;
+	}
 
-		.active > a  {
-			background-color: #181818;
-			color: $turquoise;
+	.current-ribbon {
+		float: right;
+		background-image: url("../assets/current.png");
+		background-repeat:no-repeat;
+		width: 85px;
+		height: 101px;
+
+		.yr {
+		  margin-top: 30px;
+		  -webkit-transform: rotate(-90deg);
+		  -moz-transform: rotate(-90deg);
+		  -ms-transform: rotate(-90deg);
+		  -o-transform: rotate(-90deg);
+		  transform: rotate(-90deg);
+		  text-shadow: 3px 3px #000000;
 		}
 	}
 
-
-	@media (max-width: 635px) {
-		.nav {
-			width: 100%;
-		}
-		li {
-			width: 33%;
-		}
+	.span3:nth-child(4n + 2) {
+		margin-left: 0;
+		color: red;
 	}
 
-	@media (max-width: 320px) {
-		li {
-			width: 50%;
-		}
+	.show-name {
+		margin: 1em;
+		margin-top: 0.5em;
+		@include ellipsis();
 	}
 
-
-	@media only screen 
-	and (min-device-width : 320px) 
-	and (max-device-width : 480px) { 
-		
-		li {
-			width: 19%;
-		}
-
-		.nav {
-			font-size: 0.4em;
-
-		}
-
-		#main-nav .navbar-inner .active > a {
-			padding: 1px;
-		}
-
+	.button {
+		font-size: 1em;
+		width: inherit;
+		background: none;
+		border: 1px solid;
+		border-color: white;
+		box-shadow: none;
+		opacity: 0.7;
 	}
 
-	
+	.button:hover, .button:active {
+		background: $midnight-blue;
+		opacity: 1;
+	}
 
+	img {
+		margin-bottom: 1em;
+	}
 }
